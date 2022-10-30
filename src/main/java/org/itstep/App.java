@@ -13,11 +13,8 @@ public class App {
                     }
 
                     @Override
-                    void command(String... str) {
-                        for (int i = 1; i < str.length; i++) {
-                            System.out.print(str[i] + " ");
-                        }
-                        System.out.println();
+                    void command(String... str) {                        
+                        System.out.println(String.join(" ", str));
                     }
                 },
                 new Command() {
@@ -60,7 +57,8 @@ public class App {
             String[] arrStr = operation.split("\\s+");
             for (Command com : command) {
                 if (com.com.equals(arrStr[0])) {
-                    com.command(arrStr);
+                    com.command(Arrays.copyOfRange(arrStr, 1, arrStr.length);
+                    break; // так буде ліпше
                 }
             }
         }
